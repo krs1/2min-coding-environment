@@ -6,7 +6,6 @@ FROM golang:1.16.3-buster as golang
 
 FROM debian:buster-slim
 
-
 RUN adduser --disabled-password user
 ENV USER user
 
@@ -48,5 +47,3 @@ WORKDIR /home/user
 
 RUN go install github.com/cosmtrek/air@v1.27.3
 ENV PATH $PATH:/home/user/go/bin/
-
-

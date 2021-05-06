@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  debian:
+    tty: true
+    build:
+      context: ./environment
+    container_name: "some-lang-environment"
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./environment:/environment
+    environment:
+        TZ: "Asia/Tokyo"
