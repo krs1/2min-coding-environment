@@ -6,9 +6,6 @@ FROM golang:1.16.3-buster as golang
 
 FROM debian:buster-slim
 
-RUN adduser --disabled-password user
-ENV USER user
-
 # clang, c++, and deps
 RUN apt-get update \
 && apt-get install -y vim gcc g++ make cmake tzdata  \
@@ -42,8 +39,11 @@ ENV PATH /usr/local/openjdk-11/bin:$PATH
 COPY --from=golang /usr/local/go /usr/local/go
 ENV PATH $PATH:/usr/local/go/bin/
 
-USER user
-WORKDIR /home/user
+WORKDIR /environment
 
 RUN go install github.com/cosmtrek/air@v1.27.3
-ENV PATH $PATH:/home/user/go/bin/
+ENV PATH $PATH:/go/bin/
+
+# ターミナル文字化け対応
+ENV LANG C.UTF-8
+ENV LANGUAGE en_US:
