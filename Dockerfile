@@ -1,10 +1,7 @@
-# javaはまだやってない
-# FROM oraclelinux:7-slim
-
-
 FROM node:lts-buster-slim as node
 FROM php:8.0.3-buster as php
 FROM python:3.9.4-slim as python
+FROM openjdk:11.0.11-9-slim-buster as java
 FROM golang:1.16.3-buster as golang
 
 FROM debian:buster-slim
@@ -37,6 +34,10 @@ COPY --from=python /usr/local/include /usr/local/include
 # なぜかこのライブラリだけリンクが外れちゃうので追加
 RUN ln /usr/local/lib/libpython3.9.so.1.0 /lib/x86_64-linux-gnu/libpython3.9.so.1.0
 RUN pip install pipenv
+
+# java
+COPY --from=java /usr/local/openjdk-11 /usr/local/openjdk-11
+ENV PATH /usr/local/openjdk-11/bin:$PATH
 
 # golang
 COPY --from=golang /usr/local/go /usr/local/go
