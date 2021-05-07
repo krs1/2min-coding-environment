@@ -4,6 +4,8 @@
 
 [DockerImage](https://hub.docker.com/search?q=&type=image)
 
+Forkして使う想定
+
 # 動作環境
 Mac  
 Docker version 20.10.5  
@@ -16,4 +18,9 @@ docker-compose version 1.29.0
 docker-compose up --b -d
 docker exec -it some-lang-environment bash
 ```
+
+
+# ツールなど
+Go言語のホットリロードツールAirを入れています
+https://nishinatoshiharu.com/install-go-air/
 
