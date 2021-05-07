@@ -4,8 +4,6 @@
 
 [DockerImage](https://hub.docker.com/search?q=&type=image)
 
-Forkして使う想定
-
 # 動作環境
 Mac  
 Docker version 20.10.5  
