@@ -28,8 +28,9 @@ COPY --from=php /usr/local/bin /usr/local/bin
 COPY --from=php /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu
 
 # ruby
-COPY --from=ruby /usr/local/bin/ruby /usr/local/bin/
-COPY --from=ruby /usr/local/lib/libruby.so.3.0 /usr/local/lib
+COPY --from=ruby /usr/local/bin /usr/local/bin
+COPY --from=ruby /usr/local/lib /usr/local/lib
+COPY --from=ruby /usr/lib/x86_64-linux-gnu/libyaml-0.so.2 /usr/lib/x86_64-linux-gnu
 
 # python
 COPY --from=python /usr/local/lib /usr/local/lib
