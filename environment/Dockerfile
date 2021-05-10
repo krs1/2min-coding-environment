@@ -1,5 +1,6 @@
 FROM node:14.16.1-buster-slim as node
 FROM php:8.0.3-buster as php
+FROM ruby:3.0.1-slim-buster as ruby
 FROM python:3.9.4-slim as python
 FROM openjdk:11.0.11-9-slim-buster as java
 FROM golang:1.16.3-buster as golang
@@ -24,14 +25,16 @@ RUN ln -fs /opt/yarn/bin/yarn /usr/local/bin/yarn \
 
 # php
 COPY --from=php /usr/local/bin /usr/local/bin
-# 一つずつ見るの面倒で全部コピーしちゃった
 COPY --from=php /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu
+
+# ruby
+COPY --from=ruby /usr/local/bin/ruby /usr/local/bin/
+COPY --from=ruby /usr/local/lib/libruby.so.3.0 /usr/local/lib
 
 # python
 COPY --from=python /usr/local/lib /usr/local/lib
 COPY --from=python /usr/local/bin /usr/local/bin
 COPY --from=python /usr/local/include /usr/local/include
-# なぜかこのライブラリだけリンクが外れちゃうので追加
 RUN ln /usr/local/lib/libpython3.9.so.1.0 /lib/x86_64-linux-gnu/libpython3.9.so.1.0 \
     && pip install -U pip \
     && pip install --no-cache-dir pipenv
