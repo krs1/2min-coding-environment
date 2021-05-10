@@ -19,6 +19,9 @@ docker exec -it some-lang-environment bash
 
 
 # ツールなど
-Go言語のホットリロードツールAirを入れています
+・Go言語のホットリロードツールAirを入れています
 https://nishinatoshiharu.com/install-go-air/
+
+・ts-node
+https://github.com/TypeStrong/ts-node
 

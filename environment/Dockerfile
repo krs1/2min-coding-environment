@@ -19,7 +19,8 @@ COPY --from=node /opt/yarn* /opt/yarn
 RUN ln -fs /opt/yarn/bin/yarn /usr/local/bin/yarn \
     && ln -fs /opt/yarn/bin/yarnpkg /usr/local/bin/yarnpkg \
     && npm install -g @vue/cli@4.5.12 \
-    && npm install -g typescript@4.2.4
+    && npm install -g typescript@4.2.4 \
+    && npm install -g ts-node@9.1.1
 
 # php
 COPY --from=php /usr/local/bin /usr/local/bin
