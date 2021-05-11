@@ -49,7 +49,7 @@ COPY --from=golang /usr/local/go /usr/local/go
 ENV PATH $PATH:/usr/local/go/bin/
 RUN go install github.com/cosmtrek/air@v1.27.3 \
     && rm -rf ~/.cache/go-build
-ENV PATH $PATH:/go/bin/
+ENV PATH $PATH:/root/go/bin
 
 
 
