@@ -18,6 +18,11 @@ docker exec -it some-lang-environment bash
 ```
 
 
+# 留意点
+
+* TypeScriptのバージョンが合わなくて実行できない  
+`tsc --init` でtsconfig.jsonを作成し、targetを設定し直す（ES6ならES2015）  
+https://typescript-jp.gitbook.io/deep-dive/project/compilation-context/tsconfig
 # ツールなど
 ・Go言語のホットリロードツールAirを入れています
 https://nishinatoshiharu.com/install-go-air/
