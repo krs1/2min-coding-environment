@@ -1,5 +1,5 @@
-import slice from './slice.ts'
-import toInteger from './toInteger.ts'
+import slice from './slice'
+import toInteger from './toInteger'
 
 function chunk(array:[], size:number = 1) {
   //引数の値か0を選別
